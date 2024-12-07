@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/CurrentThrowTest.java" />
+      <file url="file://$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/GameBoardTest.java" />
+      <file url="file://$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/RewardMenuTest.java" />
+      <file url="file://$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/player_board/PlayerBoardGameBoardFacadeTest.java" />
+      <file url="file://$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/stone_age/TribeFedStatusTest.java" />
+    </excludeFromCompile>
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />

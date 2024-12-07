@@ -2,6 +2,8 @@ package sk.uniba.fmph.dcs.game_board;
 
 import sk.uniba.fmph.dcs.stone_age.*;
 
+import java.util.Collection;
+
 
 public class PlaceOnFieldsAdaptor implements InterfaceFigureLocationInternal {
     private final ToolMakerHutFields fields;
@@ -66,7 +68,7 @@ public class PlaceOnFieldsAdaptor implements InterfaceFigureLocationInternal {
      * @return an {@link ActionResult} indicating the outcome of the action
      */
     @Override
-    public ActionResult makeAction(Player player, Effect[] inputResources, Effect[] outputResources) {
+    public ActionResult makeAction(Player player, Collection<Effect> inputResources, Collection<Effect> outputResources) {
         if(fields.actionFields(player)){
             return ActionResult.ACTION_DONE;
         }
@@ -104,14 +106,5 @@ public class PlaceOnFieldsAdaptor implements InterfaceFigureLocationInternal {
     @Override
     public boolean newTurn() {
         return false;
-    }
-    /**
-     * Returns the current state of the fields location as a string.
-     *
-     * @return the state of the fields location
-     */
-    @Override
-    public String state() {
-        return fields.state();
     }
 }

@@ -18,7 +18,7 @@ import java.util.Map;
 public class RewardMenu implements InterfaceTakeReward {
 
     private ArrayList<Effect> rewards;
-    private Player[] players;
+    private List<Player> players;
     private ArrayList<PlayerOrder> remainingPlayers;
 
     /**
@@ -27,7 +27,7 @@ public class RewardMenu implements InterfaceTakeReward {
      *
      * @param players an array of players participating in the reward menu
      */
-    public RewardMenu(Player[] players) {
+    public RewardMenu(List<Player> players) {
         this.players = players;
         this.remainingPlayers = new ArrayList<>();
         for (Player player : players) {
