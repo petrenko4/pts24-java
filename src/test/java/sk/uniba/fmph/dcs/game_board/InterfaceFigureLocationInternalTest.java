@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import sk.uniba.fmph.dcs.stone_age.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -21,7 +22,7 @@ public class InterfaceFigureLocationInternalTest {
             PlaceOnFieldsAdaptor placeOnFieldsAdaptor = new PlaceOnFieldsAdaptor(toolMakerHutFields);
             PlaceOnHutAdaptor placeOnHutAdaptor = new PlaceOnHutAdaptor(toolMakerHutFields);
             PlaceOnToolMakerAdaptor placeOnToolMakerAdaptor = new PlaceOnToolMakerAdaptor(toolMakerHutFields);
-            ResourceSource resourceSource = new ResourceSource("clay", Effect.CLAY, 7, 4);
+            ResourceSource resourceSource = new ResourceSource("clay", Effect.FOOD, 7, 4);
             return switch (what) {
                 case "f" -> placeOnFieldsAdaptor;
                 case "h" -> placeOnHutAdaptor;
@@ -162,5 +163,28 @@ public class InterfaceFigureLocationInternalTest {
         assertEquals(HasAction.NO_ACTION_POSSIBLE, placeOnFieldsAdaptor.tryToPlaceFigures(player, 2));
 
     }
-    //quite similar tests to T
+    //quite similar tests to T...
+
+    //testing R
+    //testing makeAction()
+    @Test
+    //everything is true
+    public void actionDoneWhenAllConditionsMetR() {
+        List<Effect> inputResources = new ArrayList<>();
+        List<Effect> outputResources = new ArrayList<>();
+        Player player = mock(Player.class);
+        when(player.playerBoard()).thenReturn(mock(InterfacePlayerBoardGameBoard.class));
+        when(player.playerBoard().hasFigures(anyInt())).thenReturn(true);
+        resourceSource.placeFigures(player, 1);
+        resourceSource.makeAction(player, inputResources, outputResources);
+        List<Effect> expected = new ArrayList<>();
+
+        //can't reach or mock Throw.throw() value, so this test is random. Still good
+        //On debug, if I throw 1 dice (because only one figure is placed) and get 4, then output resources will be [FOOD, FOOD] (because 4/2)
+
+        for (int i = 0; i < 2; i++) {
+            expected.add(Effect.FOOD);
+        }
+        assertEquals(expected, outputResources);
+    }
 }

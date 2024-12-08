@@ -12,9 +12,10 @@ public class CurrentThrow implements InterfaceToolUse {
     private int throwResult;
     private Player player;
     private int dices;
-    private int[] dicesResults;
+    public int[] dicesResults;                                 //made public for InterfaceFigureLocationInternalTest
     private boolean toolsUsed = false;
     private boolean finished = false;
+    public List<Effect> effects;
 
     public void initiate(Player player, Effect effect, int dices) {
         this.throwsFor = effect;
@@ -23,6 +24,7 @@ public class CurrentThrow implements InterfaceToolUse {
         int[] dicesResults = Throw.throw_(dices);
         this.dicesResults = dicesResults;
         throwResult = Arrays.stream(dicesResults).reduce(0, Integer::sum);
+        effects = new ArrayList<>();
     }
 
     @Override
@@ -55,8 +57,6 @@ public class CurrentThrow implements InterfaceToolUse {
             return false;
         }
 
-        List<Effect> effects = new ArrayList<>();
-
         switch (throwsFor) {
             case WOOD:
                 for (int i = 0; i < Math.floorDiv(throwResult, throwsFor.points()); i++) {
@@ -87,7 +87,6 @@ public class CurrentThrow implements InterfaceToolUse {
                 break;
         }
 
-        player.playerBoard().giveEffect(effects);
         finished = true;
         return true;
     }

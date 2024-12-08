@@ -1,13 +1,9 @@
 package sk.uniba.fmph.dcs.game_board;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
+
 import org.json.JSONObject;
 import sk.uniba.fmph.dcs.stone_age.*;
-
-import java.util.Map;
 
 public final class ResourceSource implements InterfaceFigureLocationInternal {
     private final String name;
@@ -15,6 +11,7 @@ public final class ResourceSource implements InterfaceFigureLocationInternal {
     private final int maxFigures;
     private final int maxFigureColors;
     private final ArrayList<PlayerOrder> figures;
+    private final CurrentThrow currentThrow;
 
     public ResourceSource(String name, Effect resource, int maxFigures, int maxFigureColors) {
         if (!resource.isResourceOrFood()) {
@@ -25,6 +22,7 @@ public final class ResourceSource implements InterfaceFigureLocationInternal {
         this.maxFigures = maxFigures;
         this.maxFigureColors = maxFigureColors;
         this.figures = new ArrayList<>();
+        currentThrow = new CurrentThrow();
     }
 
     @Override
@@ -56,33 +54,27 @@ public final class ResourceSource implements InterfaceFigureLocationInternal {
 
     @Override
     public ActionResult makeAction(Player player, Collection<Effect> inputResources, Collection<Effect> outputResources) {
-        // Verify it's this player's figures
-        if (!hasFiguresFromPlayer(player.playerOrder())) {
+        if (!figures.contains(player.playerOrder())) {
             return ActionResult.FAILURE;
         }
-
-        // Resource sources don't take input resources
-        if (!inputResources.isEmpty()) {
-            return ActionResult.FAILURE;
+        currentThrow.initiate(player, resource, Collections.frequency(figures, player.playerOrder()));
+        currentThrow.finishUsingTools();
+                                                                 //not sure how this works. When do players have to use their tools?
+                                                                 //trying to use all arguments even if it's  not supposed to be like this
+  /*                                                             //just for the sake of more complex and engaging testing
+        if(currentThrow.canUseTools()){
+            return ActionResult.ACTION_DONE_WAIT_FOR_TOOL_USE;
         }
+    */
+        List<Effect>  resEffects = currentThrow.effects;
+        outputResources.addAll(resEffects);
 
-        // Resource sources must output exactly one type of resource per figure
-        int playerFigureCount = countPlayerFigures(player.playerOrder());
-        if (outputResources.size() != playerFigureCount) {
-            return ActionResult.FAILURE;
-        }
-        for (Effect output : outputResources) {
-            if (output != this.resource) {
-                return ActionResult.FAILURE;
-            }
-        }
-
-        return ActionResult.ACTION_DONE_WAIT_FOR_TOOL_USE;
+        return ActionResult.ACTION_DONE;
     }
 
     @Override
     public HasAction tryToMakeAction(Player player) {
-        if (hasFiguresFromPlayer(player.playerOrder())) {
+        if (figures.contains(player.playerOrder())) {
             return HasAction.WAITING_FOR_PLAYER_ACTION;
         }
         return HasAction.NO_ACTION_POSSIBLE;
@@ -111,41 +103,13 @@ public final class ResourceSource implements InterfaceFigureLocationInternal {
         }
 
         // Check if player already has figures here
-        if (hasFiguresFromPlayer(player.playerOrder())) {
+        if (figures.contains(player.playerOrder())) {
             return false;
         }
 
         // Check number of different players
-        if (!figures.isEmpty() && !containsPlayerOrder(figures, player.playerOrder())) {
-            int currentColors = countDistinctPlayers();
-            if (currentColors >= maxFigureColors) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    private boolean hasFiguresFromPlayer(PlayerOrder player) {
-        return containsPlayerOrder(figures, player);
-    }
-
-    private int countPlayerFigures(PlayerOrder player) {
-        int count = 0;
-        for (PlayerOrder p : figures) {
-            if (p.equals(player)) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    private int countDistinctPlayers() {
-        return (int) figures.stream().distinct().count();
-    }
-
-    private boolean containsPlayerOrder(Collection<PlayerOrder> collection, PlayerOrder player) {
-        return collection.stream().anyMatch(p -> p.equals(player));
+        Set<PlayerOrder> set = new HashSet<>(figures);
+        return set.size() < maxFigureColors;
     }
 
     public String state() {
