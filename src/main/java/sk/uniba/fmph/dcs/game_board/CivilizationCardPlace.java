@@ -97,8 +97,33 @@ public class CivilizationCardPlace implements InterfaceFigureLocationInternal {
         if (!canMakeAction(player, inputResources)) {
             return ActionResult.FAILURE;
         }
-        applyCardEffects(player, outputResources);
         currentCivilizationCard = deck.getTop().orElse(null);
+        evaluateCivilizationCardImmediateEffect.performEffect(player, null);
+        outputResources.addAll(inputResources);
+        for(ImmediateEffect eff: currentCivilizationCard.getImmediateEffectType()){
+            switch (eff){
+                case FOOD: {
+                    outputResources.add(Effect.FOOD);
+                    break;
+                }
+                case WOOD:{
+                    outputResources.add(Effect.WOOD);
+                    break;
+                }
+                case CLAY:{
+                    outputResources.add(Effect.CLAY);
+                    break;
+                }
+                case STONE:{
+                    outputResources.add(Effect.STONE);
+                    break;
+                }
+                case GOLD: {
+                    outputResources.add(Effect.GOLD);
+                    break;
+                }
+            }
+        }
         actionMade = true;
         return ActionResult.ACTION_DONE;
     }

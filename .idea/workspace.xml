@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="703a6f2a-9395-479e-a894-b80c5ecf9db5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/CurrentThrowAndLowerClassesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/CurrentThrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/CurrentThrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/ResourceSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/ResourceSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/InterfaceFigureLocationInternalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sk/uniba/fmph/dcs/game_board/InterfaceFigureLocationInternalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/CivilizationCardPlace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/CivilizationCardPlace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/GetCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/GetCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/GetSomethingThrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/GetSomethingThrow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +49,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.CurrentThrowAndLowerClassesTest.GetCardIntegrationTest.executor": "Debug",
+    "JUnit.CurrentThrowAndLowerClassesTest.GetSomethingThrowTest.executor": "Run",
+    "JUnit.CurrentThrowAndLowerClassesTest.executor": "Run",
     "JUnit.IntegrationTestGameBoard.executor": "Run",
     "JUnit.IntegrationTestGameBoard.interfaceFigureLocationInternalTest.executor": "Run",
     "JUnit.IntegrationTestGameBoard.test.executor": "Run",
@@ -75,8 +79,8 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenAllConditionsMetR">
-    <configuration name="InterfaceFigureLocationInternalTest.actionDoneWhenAllConditionsMetF" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CurrentThrowAndLowerClassesTest">
+    <configuration name="CurrentThrowAndLowerClassesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="STONE_AGE" />
       <extension name="coverage">
         <pattern>
@@ -85,8 +89,39 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
-      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.InterfaceFigureLocationInternalTest" />
-      <option name="METHOD_NAME" value="actionDoneWhenAllConditionsMetF" />
+      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.CurrentThrowAndLowerClassesTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrentThrowAndLowerClassesTest.GetCardIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="STONE_AGE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sk.uniba.fmph.dcs.game_board.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
+      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.CurrentThrowAndLowerClassesTest" />
+      <option name="METHOD_NAME" value="GetCardIntegrationTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrentThrowAndLowerClassesTest.GetSomethingThrowTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="STONE_AGE" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sk.uniba.fmph.dcs.game_board.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
+      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.CurrentThrowAndLowerClassesTest" />
+      <option name="METHOD_NAME" value="GetSomethingThrowTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -103,38 +138,6 @@
       <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
       <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.InterfaceFigureLocationInternalTest" />
       <option name="METHOD_NAME" value="actionDoneWhenAllConditionsMetR" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InterfaceFigureLocationInternalTest.actionDoneWhenOneConditionFailsF" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="STONE_AGE" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sk.uniba.fmph.dcs.game_board.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
-      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.InterfaceFigureLocationInternalTest" />
-      <option name="METHOD_NAME" value="actionDoneWhenOneConditionFailsF" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InterfaceFigureLocationInternalTest.actionDoneWhenOneConditionFailsF1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="STONE_AGE" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sk.uniba.fmph.dcs.game_board.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="sk.uniba.fmph.dcs.game_board" />
-      <option name="MAIN_CLASS_NAME" value="sk.uniba.fmph.dcs.game_board.InterfaceFigureLocationInternalTest" />
-      <option name="METHOD_NAME" value="actionDoneWhenOneConditionFailsF1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CurrentThrowAndLowerClassesTest" />
+        <item itemvalue="JUnit.CurrentThrowAndLowerClassesTest.GetSomethingThrowTest" />
+        <item itemvalue="JUnit.CurrentThrowAndLowerClassesTest.GetCardIntegrationTest" />
         <item itemvalue="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenAllConditionsMetR" />
         <item itemvalue="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenOneConditionFailsF2" />
-        <item itemvalue="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenOneConditionFailsF1" />
-        <item itemvalue="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenOneConditionFailsF" />
-        <item itemvalue="JUnit.InterfaceFigureLocationInternalTest.actionDoneWhenAllConditionsMetF" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +187,8 @@
       <updated>1733569179620</updated>
       <workItem from="1733569182055" duration="7094000" />
       <workItem from="1733577697501" duration="2626000" />
-      <workItem from="1733659409469" duration="9901000" />
+      <workItem from="1733659409469" duration="11289000" />
+      <workItem from="1733754113316" duration="8439000" />
     </task>
     <servers />
   </component>
@@ -214,6 +218,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/ResourceSource.java</url>
           <line>69</line>
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sk/uniba/fmph/dcs/game_board/CivilizationCardPlace.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
